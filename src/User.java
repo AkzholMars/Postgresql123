@@ -1,4 +1,4 @@
-import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 public class User {
     private String login;
@@ -7,6 +7,7 @@ public class User {
     private int age;
     private String gender;
     private Account userAccount;
+    private String created_dt;
 
     public static class Account {
 
@@ -15,10 +16,8 @@ public class User {
 
         @Override
         public String toString() {
-            return "Account{" +
-                    "accountNumber=" + accountNumber +
-                    ", currency=" + currency +
-                    '}';
+            return "accountNumber=" + accountNumber +
+                    ", currency=" + currency;
         }
 
         public int getAccountNumber() {
@@ -53,6 +52,7 @@ public class User {
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", userAccount=" + userAccount +
+                ", created_dt=" + created_dt +
                 '}';
     }
 
@@ -104,12 +104,21 @@ public class User {
         this.userAccount = userAccount;
     }
 
-    public User(String login, String fullname, String email, int age, String gender, Account userAccount) {
+    public String getCreated_dt() {
+        return created_dt;
+    }
+
+    public void setCreated_dt(String created_dt) {
+        this.created_dt = created_dt;
+    }
+
+    public User(String login, String fullname, String email, int age, String gender, Account userAccount, String created_dt) {
         this.login = login;
         this.fullname = fullname;
         this.email = email;
         this.age = age;
         this.gender = gender;
         this.userAccount = userAccount;
+        this.created_dt = created_dt;
     }
 }
